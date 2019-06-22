@@ -73,20 +73,30 @@ public class Libretto {
 	}
 	
 	
-	/** 
-	 * Mi dice se il {@link Voto} {@code v} e' in conflitto con uno dei voti
-	 * esistenti. Se il voto non esiste, non c'e' conflitto, oppure esiste e ha lo stesso puntegggio.
+	/**
+	 * Dato un {@link Voto}, determino se esiste gia un voto 
+	 * con uguale corso e punteggio.
 	 * @param v
-	 * @return true se il voto esiste e 
+	 * @return {@code true}, se ho trovato un corso e punteggi uguali ,{@code false} non ha trovato il corso o l'ha trovato con punti diversi 
 	 */
 	
 	
 	public boolean esisteGiaVoto(Voto v) {
-		int pos = this.voti.indexOf(v);
+		Voto trovato = this.cercaEsame(v.getCorso());
+		if(trovato == null)
+			return false;
+		if(trovato.getPunti()==v.getPunti()) {
+			return true;
+		} else {
+			return false;
+		}
+		/*int pos = this.voti.indexOf(v);
 		if (pos == -1)
 			return false;
 		else
 			return (v.getPunti() == this.voti.get(pos).getPunti());
+			*/
+		
 	}
 	
 	public String toString() {
