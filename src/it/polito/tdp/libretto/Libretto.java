@@ -32,8 +32,22 @@ public class Libretto {
 	// struttura dati della classe voto -> devo cambiare anche
 	// libretto.add nel caso del primo add(voto, corso, data) 
 	
-
-	
+	/**
+	 * Seleziona il sottoinsieme di voti che hanno il punteggio specificato
+	 * 
+	 * @param punti punteggio da ricercare
+	 * @return lista di {@link Voto} aventi quel punteggio
+	 */
+	public List<Voto> cercaVoti(int punti){
+		List<Voto> result = new ArrayList<Voto>();
+		
+		for(Voto v : this.voti) {
+			if(v.getPunti() == punti) {
+				result.add(v);
+			}
+		}
+		return result;
+	}
 	
 	public Voto cercaVoto(String nomeEsame) {
 		Voto voto = new Voto(0, nomeEsame, null);
