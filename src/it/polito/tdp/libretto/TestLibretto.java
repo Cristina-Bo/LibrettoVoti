@@ -21,6 +21,11 @@ public class TestLibretto {
 		
 		List<Voto> venticinque = libr.cercaVoti(25);
 		System.out.println(venticinque);
+		
+		Voto a1 = libr.cercaEsame("Analisi I");
+		Voto a3 = libr.cercaEsame("Analisi III");
+		System.out.println(a1);
+		System.out.println(a3);
 	}
 
 }

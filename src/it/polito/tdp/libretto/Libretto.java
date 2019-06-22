@@ -49,14 +49,27 @@ public class Libretto {
 		return result;
 	}
 	
-	public Voto cercaVoto(String nomeEsame) {
-		Voto voto = new Voto(0, nomeEsame, null);
+	/**
+	 * Ricerca un voto relativo al corso di cui specifico il nome
+	 * @param nomeEsame nome del corso da ricercare
+	 * @return il {@link Voto} corrispondente, oppure {@code null} se non esiste
+	 */
+	
+	public Voto cercaEsame(String nomeEsame) {
+		
+		for(Voto v: this.voti) {
+			if(v.getCorso().equals(nomeEsame)) {
+				return v;
+				}
+			}
+		return null;
+		//Voto voto = new Voto(0, nomeEsame, null);
 		//indexof confronta solo il nome esame
-		int pos = this.voti.indexOf(voto);
-		if(pos == -1)//se restituisce meno uno l'oggetto non e' stato trovato
-			return null;
-		else 
-			return this.voti.get(pos);
+		//int pos = this.voti.indexOf(voto);
+		//if(pos == -1)//se restituisce meno uno l'oggetto non e' stato trovato
+		//	return null;
+		//else 
+		//	return this.voti.get(pos);
 	}
 	
 	
