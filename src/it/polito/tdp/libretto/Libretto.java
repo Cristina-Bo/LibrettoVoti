@@ -128,9 +128,16 @@ public class Libretto {
 	public Libretto librettoMigliorato() {
 		Libretto nuovo = new Libretto();
 		for(Voto v : this.voti) {
+			// nuovo.add(v); cosi' copio il riferimento, se modifico in nuovo viene modificato anche nel libretto originale 
 			nuovo.add(v.clone());
+			// factoring metodo che costruisce un oggetto,
+			//creare un oggetto puo' essere rischioso se fatto con new
+			
 		}
 		// essendo voti privati, io in libretto lo posso fare, fuori dalla classe libretto no!!!
+		// voti e' un metodo privato di libretto, fuori dalla classe libretto non posso accederci
+		//ma dalla classe libretto si, per questo non da' errore
+		
 		for(Voto v : nuovo.voti) {
 			int punti = v.getPunti();
 			if(punti < 24)
@@ -150,7 +157,8 @@ public class Libretto {
 			}
 		}
 		this.voti.removeAll(cancellare);
-	}//posso modificare la collection SOLO se non la sto iterando???
+	}//posso modificare la collection SOLO se non la sto iterando!!!
+	// durante l'iterazione non posso cancellare/modificare 
 	
 	
 	
