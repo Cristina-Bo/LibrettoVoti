@@ -57,19 +57,19 @@ public class Libretto {
 	
 	public Voto cercaEsame(String nomeEsame) {
 		
-		for(Voto v: this.voti) {
+		/*for(Voto v: this.voti) {
 			if(v.getCorso().equals(nomeEsame)) {
 				return v;
 				}
 			}
-		return null;
-		//Voto voto = new Voto(0, nomeEsame, null);
-		//indexof confronta solo il nome esame
-		//int pos = this.voti.indexOf(voto);
-		//if(pos == -1)//se restituisce meno uno l'oggetto non e' stato trovato
-		//	return null;
-		//else 
-		//	return this.voti.get(pos);
+		return null;*/
+		Voto voto = new Voto(0, nomeEsame, null);
+		//indexof confronta solo il nome esame, uguale con il metodo equals confronto solo nome corso
+		int pos = this.voti.indexOf(voto);
+		if(pos == -1)//se restituisce meno uno l'oggetto non e' stato trovato
+			return null;
+		else 
+			return this.voti.get(pos);
 	}
 	
 	
@@ -82,20 +82,21 @@ public class Libretto {
 	
 	
 	public boolean esisteGiaVoto(Voto v) {
-		Voto trovato = this.cercaEsame(v.getCorso());
+		/*Voto trovato = this.cercaEsame(v.getCorso());
 		if(trovato == null)
 			return false;
 		if(trovato.getPunti()==v.getPunti()) {
 			return true;
 		} else {
 			return false;
-		}
-		/*int pos = this.voti.indexOf(v);
+		}*/
+		int pos = this.voti.indexOf(v);
 		if (pos == -1)
 			return false;
 		else
 			return (v.getPunti() == this.voti.get(pos).getPunti());
-			*/
+		// mi dice true se e' vera, false se e' falsa
+			
 		
 	}
 	
